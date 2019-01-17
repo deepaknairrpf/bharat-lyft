@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_offer_lift"
+            android:icon="@drawable/ic_launcher_background"
+            android:title="@string/offer_lift" />
+        <item
+            android:id="@+id/get_lift"
+            android:icon="@drawable/ic_launcher_background"
+            android:title="@string/get_lift" />
+        <item
+            android:id="@+id/about_us"
+            android:icon="@drawable/ic_launcher_background"
+            android:title="@string/about_us" />
+        <item
+            android:id="@+id/support"
+            android:icon="@drawable/ic_launcher_background"
+            android:title="@string/support" />
+    </group>
+</menu>
