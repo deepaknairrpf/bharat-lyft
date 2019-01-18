@@ -54,17 +54,27 @@ public class LyfterActivity extends FragmentActivity implements OnMapReadyCallba
         dataToBackend.put("source_long", source.longitude);
         dataToBackend.put("destination_lat", destination.latitude);
         dataToBackend.put("destination_long", destination.longitude);
-        Http.post(endPoint, dataToBackend, new LyfterServiceResponseHandler());
+        Http.hit(endPoint, new JSONObject(dataToBackend), new LyfterServiceResponseHandler());
     }
 
     private void assignLyftees(Integer lyfterServiceId) {
+        String endPoint = "/api/lyfter-services/" + lyfterServiceId + "/assign-lyftee";
+        Log.d("assign_endpoint", endPoint);
+        Http.hit(endPoint, null, new AssignLyfteesResponseHandler());
 
     }
 
     class LyfterServiceResponseHandler implements Callback {
         @Override
         public void handleResponse(HashMap<String, Object> response) {
-
+            Log.d("lyfter_service", response.toString());
+            assignLyftees(Integer.parseInt(response.get("id").toString()));
+        }
+    }
+    class AssignLyfteesResponseHandler implements Callback {
+        @Override
+        public void handleResponse(HashMap<String, Object> response) {
+            Log.d("assignee_response", response.toString());
         }
     }
 

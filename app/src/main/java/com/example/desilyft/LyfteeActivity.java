@@ -2,6 +2,7 @@ package com.example.desilyft;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.SharedPreferences;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,12 +26,14 @@ import org.w3c.dom.Text;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 
 public class LyfteeActivity extends AppCompatActivity {
 
     CardView btnDatePicker, btnTimePicker;
     private int mYear, mMonth, mDay, mHour, mMinute;
     private int currentYear, currentMonth, currentDate, currentHour, currentMin;
+    Button scheduleButton;
 
 
 
@@ -42,6 +45,7 @@ public class LyfteeActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         final TextView txtDate=(TextView) findViewById(R.id.dateText);
         final TextView txtTime=(TextView) findViewById(R.id.timeText);
+        scheduleButton = (Button)findViewById(R.id.schedule_button);
 
         Calendar c = Calendar.getInstance();
         currentYear = c.get(Calendar.YEAR);
@@ -143,5 +147,38 @@ public class LyfteeActivity extends AppCompatActivity {
 
         ((EditText)autocompleteFragmentDestination.getView().findViewById(R.id.place_autocomplete_search_input)).setHint("Destination");
 
+
+        scheduleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                sendScheduleRequest();
+            }
+        });
+    }
+
+    private void sendScheduleRequest() {
+//        String endPoint = "/api/lyftee-schedules/";
+//        HashMap<String, Object> dataToBackend = new HashMap<>();
+//        dataToBackend.put("source_lat", username);
+//        dataToBackend.put("source_long", password);
+//        dataToBackend.put("destination_lat", username);
+//        dataToBackend.put("destination_long", password);
+//        dataToBackend.put("scheduled_time", username);
+//        dataToBackend.put("source_long", password);
+//        dataToBackend.put("source_lat", username);
+//        dataToBackend.put("source_long", password);
+//        Http.hit(endPoint, new JSONObject(dataToBackend), new LoginResponseHandler());
+    }
+
+
+    class LyfteeScheduleResponseHandler implements Callback {
+        @Override
+        public void handleResponse(HashMap<String, Object> response) {
+
+
+
+            Toast.makeText(getApplicationContext(),"skldfjsd",Toast.LENGTH_LONG).show();
+        }
     }
 }
