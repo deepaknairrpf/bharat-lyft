@@ -5,13 +5,21 @@ import android.app.TimePickerDialog;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
+
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
+import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 
 import org.w3c.dom.Text;
 
@@ -20,7 +28,7 @@ import java.util.Date;
 
 public class LyfteeActivity extends AppCompatActivity {
 
-    ImageButton btnDatePicker, btnTimePicker;
+    CardView btnDatePicker, btnTimePicker;
     private int mYear, mMonth, mDay, mHour, mMinute;
     private int currentYear, currentMonth, currentDate, currentHour, currentMin;
 
@@ -31,6 +39,7 @@ public class LyfteeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lyftee);
 
+        getSupportActionBar().hide();
         final TextView txtDate=(TextView) findViewById(R.id.dateText);
         final TextView txtTime=(TextView) findViewById(R.id.timeText);
 
@@ -42,8 +51,8 @@ public class LyfteeActivity extends AppCompatActivity {
         currentMin = c.get(Calendar.MINUTE);
         txtDate.setText(currentDate + "-" + (currentMonth + 1) + "-" + currentYear);
         txtTime.setText(currentHour + ":" + currentMin);
-        btnDatePicker=(ImageButton)findViewById(R.id.dateImgButton);
-        btnTimePicker=(ImageButton)findViewById(R.id.timeImgButton);
+        btnDatePicker=(CardView) findViewById(R.id.idCardView_date);
+        btnTimePicker=(CardView) findViewById(R.id.idCardView_time);
 
         btnDatePicker.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,5 +99,49 @@ public class LyfteeActivity extends AppCompatActivity {
                 timePickerDialog.show();
             }
         });
+
+        PlaceAutocompleteFragment autocompleteFragmentSource = (PlaceAutocompleteFragment)
+                getFragmentManager().findFragmentById(R.id.place_autocomplete_source);
+
+        /*AutocompleteFilter filter = new AutocompleteFilter.Builder()
+                .setCountry("IN")
+                .setTypeFilter(AutocompleteFilter.TYPE_FILTER_CITIES)
+                .build();
+        autocompleteFragment.setFilter(filter);*/
+        autocompleteFragmentSource.setOnPlaceSelectedListener(new PlaceSelectionListener() {
+            @Override
+            public void onPlaceSelected(Place place) {
+                Toast.makeText(getApplicationContext(),"Source Set to "+place.getName(),Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onError(Status status) {
+                Log.d("DEBUG",status.toString());
+            }
+        });
+
+        ((EditText)autocompleteFragmentSource.getView().findViewById(R.id.place_autocomplete_search_input)).setHint("Source");
+
+
+        PlaceAutocompleteFragment autocompleteFragmentDestination = (PlaceAutocompleteFragment)
+                getFragmentManager().findFragmentById(R.id.place_autocomplete_destination);
+
+        /*AutocompleteFilter filter = new AutocompleteFilter.Builder()
+                .setCountry("IN")
+                .setTypeFilter(AutocompleteFilter.TYPE_FILTER_CITIES)
+                .build();
+        autocompleteFragment.setFilter(filter);*/
+        autocompleteFragmentDestination.setOnPlaceSelectedListener(new PlaceSelectionListener() {
+            @Override
+            public void onPlaceSelected(Place place) {
+                Toast.makeText(getApplicationContext(),"Source Set to "+place.getName(),Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onError(Status status) {
+                Log.d("DEBUG",status.toString());
+            }
+        });
+
+        ((EditText)autocompleteFragmentDestination.getView().findViewById(R.id.place_autocomplete_search_input)).setHint("Destination");
+
     }
 }
