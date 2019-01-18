@@ -27,6 +27,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.gson.Gson;
 import com.libizo.CustomEditText;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -45,7 +46,7 @@ public class LyfterActivity extends FragmentActivity implements OnMapReadyCallba
     private LatLng source;
     private static final int  REQUEST_FINE_LOCATION = 101;
 
-    private void sendDataToBackend(LatLng source, LatLng destination) {
+    private void createLyfterService(LatLng source, LatLng destination) {
         String endPoint = "/api/lyfter-services";
         HashMap<String, Object> dataToBackend = new HashMap<>();
         dataToBackend.put("lyftee_max_limit", 1);
@@ -56,10 +57,14 @@ public class LyfterActivity extends FragmentActivity implements OnMapReadyCallba
         Http.post(endPoint, dataToBackend, new LyfterServiceResponseHandler());
     }
 
+    private void assignLyftees(Integer lyfterServiceId) {
+
+    }
+
     class LyfterServiceResponseHandler implements Callback {
         @Override
-        public void handleResponse(JSONObject response) {
-            Log.d("actual_response", response.toString());
+        public void handleResponse(HashMap<String, Object> response) {
+
         }
     }
 
@@ -85,7 +90,7 @@ public class LyfterActivity extends FragmentActivity implements OnMapReadyCallba
             public void onPlaceSelected(Place place) {
                 destination = place;
                 // Get the
-                sendDataToBackend(source, destination.getLatLng());
+                createLyfterService(source, destination.getLatLng());
                 Toast.makeText(getApplicationContext(),"Destination Set to "+place.getName(),Toast.LENGTH_SHORT).show();
             }
             @Override

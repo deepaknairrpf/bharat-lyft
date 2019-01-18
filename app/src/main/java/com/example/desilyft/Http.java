@@ -42,7 +42,8 @@ public class Http {
                     public void onResponse(JSONObject response) {
                         try {
                             VolleyLog.v("Response:%n %s", response.toString(4));
-                            callbackClass.handleResponse(response);
+                            HashMap<String, Object> responseHashMap = new Gson().fromJson(response.toString(), HashMap.class);
+                            callbackClass.handleResponse(responseHashMap);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
