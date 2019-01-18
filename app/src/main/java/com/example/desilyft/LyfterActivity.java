@@ -1,10 +1,13 @@
 package com.example.desilyft;
 
 import android.Manifest;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
@@ -12,6 +15,7 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,7 +29,10 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.gson.Gson;
 import com.libizo.CustomEditText;
@@ -44,7 +51,12 @@ public class LyfterActivity extends FragmentActivity implements OnMapReadyCallba
     private GoogleMap mMap;
     private Place destination;
     private LatLng source;
+    private HashMap<String, Object> lifteeAssignmentDetails;
+    private HashMap<String, Object> lifterService;
     private static final int  REQUEST_FINE_LOCATION = 101;
+    private static final int ZOOM_LEVEL = 15;
+    private static final int TILT_LEVEL = 0;
+    private static final int BEARING_LEVEL = 0;
 
     private void createLyfterService(LatLng source, LatLng destination) {
         String endPoint = "/api/lyfter-services";
@@ -58,7 +70,7 @@ public class LyfterActivity extends FragmentActivity implements OnMapReadyCallba
     }
 
     private void assignLyftees(Integer lyfterServiceId) {
-        String endPoint = "/api/lyfter-services/" + lyfterServiceId + "/assign-lyftee";
+        String endPoint = "/api/lyfter-services/" + lyfterServiceId + "/find-lyftee";
         Log.d("assign_endpoint", endPoint);
         Http.hit(endPoint, null, new AssignLyfteesResponseHandler());
 
@@ -68,14 +80,95 @@ public class LyfterActivity extends FragmentActivity implements OnMapReadyCallba
         @Override
         public void handleResponse(HashMap<String, Object> response) {
             Log.d("lyfter_service", response.toString());
+            lifterService = response;
             assignLyftees(Integer.parseInt(response.get("id").toString()));
         }
     }
     class AssignLyfteesResponseHandler implements Callback {
         @Override
         public void handleResponse(HashMap<String, Object> response) {
-            Log.d("assignee_response", response.toString());
+            lifteeAssignmentDetails = response;
+            showLyfteeCard(response);
+            addMarkers();
         }
+    }
+
+    private void addMarkers() {
+        Float originLat = (Float)lifterService.get("source_lat");
+        Float originLong = (Float)lifterService.get("source_long");
+        Float destinationLat = (Float)lifterService.get("destination_lat");
+        Float destinationLong = (Float)lifterService.get("destination_long");
+        Float waypointSourceLat = (Float)lifteeAssignmentDetails.get("source_lat");
+        Float wayPointSourceLong = (Float)lifteeAssignmentDetails.get("source_long");
+        Float wayPointDestinationLat = (Float)lifteeAssignmentDetails.get("destination_lat");
+        Float wayPointDestinationLong = (Float)lifteeAssignmentDetails.get("destination_long");
+        Marker m1 = mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(originLat, originLong))
+                .anchor(0.5f, 0.5f)
+                .title("Title1")
+                .snippet("Snippet1"));
+
+
+
+        Marker m2 = mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(destinationLat,destinationLong))
+                .anchor(0.5f, 0.5f)
+                .title("Title2")
+                .snippet("Snippet2"));
+
+        Marker m3 = mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(waypointSourceLat,wayPointSourceLong))
+                .anchor(0.5f, 0.5f)
+                .title("Title2")
+                .snippet("Snippet2"));
+
+        Marker m4 = mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(wayPointDestinationLat,wayPointDestinationLong))
+                .anchor(0.5f, 0.5f)
+                .title("Title2")
+                .snippet("Snippet2"));
+
+        LatLng sydney = new LatLng(-34, 151);
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+//        CameraPosition camPos = new CameraPosition(new LatLng(originLat, originLong), ZOOM_LEVEL, TILT_LEVEL, BEARING_LEVEL);
+//        mMap.moveCamera(CameraUpdateFactory.newCameraPosition(camPos));
+
+    }
+
+    private void takeToGoogleMaps() {
+        String originLat = lifterService.get("source_lat").toString();
+        String originLong = lifterService.get("source_long").toString();
+        String destinationLat = lifterService.get("destination_lat").toString();
+        String destinationLong = lifterService.get("destination_long").toString();
+        Log.d("destinationLat", destinationLat);
+        Log.d("destinationLong", destinationLong);
+        String waypointSourceLat = lifteeAssignmentDetails.get("source_lat").toString();
+        String wayPointSourceLong = lifteeAssignmentDetails.get("source_long").toString();
+        String wayPointDestinationLat = lifteeAssignmentDetails.get("destination_lat").toString();
+        String wayPointDestinationLong = lifteeAssignmentDetails.get("destination_long").toString();
+        Uri gmmIntentUri = Uri.parse("https://www.google.com/maps/dir/?api=1&origin="+ originLat + "," + originLong + "&destination=" + destinationLat + "," + destinationLong + "&waypoints=" + waypointSourceLat + "," + wayPointSourceLong + "|" + wayPointDestinationLat + "," + wayPointDestinationLong + "&travelmode=driving");
+        Intent intent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+        intent.setPackage("com.google.android.apps.maps");
+        try {
+            startActivity(intent);
+        } catch (ActivityNotFoundException ex) {
+            try {
+                Intent unrestrictedIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                startActivity(unrestrictedIntent);
+            } catch (ActivityNotFoundException innerEx) {
+                Toast.makeText(this, "Please install a maps application", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
+    public void showLyfteeCard(HashMap<String, Object> lifteeDetails) {
+        HashMap<String, Object> userData = (HashMap<String, Object>)lifteeDetails.get("user");
+        String name = userData.get("first_name").toString();
+        View parent = findViewById(R.id.liftee_card);
+        parent.setVisibility(View.VISIBLE);
+        TextView nameTextView = (TextView)parent.findViewById(R.id.nameTextView);
+        nameTextView.setText(name);
     }
 
     @Override
@@ -106,6 +199,15 @@ public class LyfterActivity extends FragmentActivity implements OnMapReadyCallba
             @Override
             public void onError(Status status) {
                 Log.d("DEBUG",status.toString());
+            }
+        });
+
+        Button acceptButton = (Button) findViewById(R.id.accept_button);
+        acceptButton.setOnClickListener( new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                takeToGoogleMaps();
             }
         });
 
