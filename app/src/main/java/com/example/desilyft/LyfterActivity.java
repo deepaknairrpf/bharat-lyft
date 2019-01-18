@@ -31,6 +31,8 @@ import com.libizo.CustomEditText;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -44,7 +46,21 @@ public class LyfterActivity extends FragmentActivity implements OnMapReadyCallba
     private static final int  REQUEST_FINE_LOCATION = 101;
 
     private void sendDataToBackend(LatLng source, LatLng destination) {
-        Log.d("source", source.toString());
+        String endPoint = "/api/lyfter-services";
+        HashMap<String, Object> dataToBackend = new HashMap<>();
+        dataToBackend.put("lyftee_max_limit", 1);
+        dataToBackend.put("source_lat", source.latitude);
+        dataToBackend.put("source_long", source.longitude);
+        dataToBackend.put("destination_lat", destination.latitude);
+        dataToBackend.put("destination_long", destination.longitude);
+        Http.post(endPoint, dataToBackend, new LyfterServiceResponseHandler());
+    }
+
+    class LyfterServiceResponseHandler implements Callback {
+        @Override
+        public void handleResponse(JSONObject response) {
+            Log.d("actual_response", response.toString());
+        }
     }
 
     @Override

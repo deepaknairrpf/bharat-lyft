@@ -11,28 +11,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b5def7a3-5a52-4eeb-b803-59732b18879d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_volley_volley_1_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_8_5_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/desilyft/ApplicationController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/desilyft/Http.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/desilyft/UserLocation.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/desilyft/Utils.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/desilyft/Callback.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/desilyft/Http.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/desilyft/Http.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/desilyft/LyfterActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/desilyft/LyfterActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_lyfter.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_lyfter.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/liftee_details_card.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/liftee_details_card.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -56,18 +45,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LyfterActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LyfterActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/desilyft/LyfterActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="46" column="42" lean-forward="true" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
+            <state relative-caret-position="100">
+              <caret line="54" column="67" lean-forward="false" selection-start-line="54" selection-start-column="67" selection-end-line="54" selection-end-column="67" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5839#6213#0" expanded="true" />
-                <element signature="e#6212#6213#0" expanded="true" />
-                <element signature="e#6253#6550#0" expanded="true" />
-                <element signature="e#6549#6550#0" expanded="true" />
+                <element signature="e#6538#6912#0" expanded="true" />
+                <element signature="e#6911#6912#0" expanded="true" />
+                <element signature="e#6952#7249#0" expanded="true" />
+                <element signature="e#7248#7249#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Callback.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/desilyft/Callback.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -98,40 +97,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_lyfter.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_lyfter.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="15" column="44" lean-forward="false" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-manifest">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Http.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Http.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/desilyft/Http.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="53" column="58" lean-forward="true" selection-start-line="53" selection-start-column="58" selection-end-line="53" selection-end-column="58" />
+            <state relative-caret-position="286">
+              <caret line="46" column="37" lean-forward="false" selection-start-line="46" selection-start-column="33" selection-end-line="46" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2024#2040#0" expanded="true" />
+                <element signature="e#2288#2304#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -171,6 +144,7 @@
       <list>
         <option value="layoutResourceFile" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -182,11 +156,14 @@
       <find>Response</find>
       <find>sendDumm</find>
       <find>new Place</find>
-      <find>Float</find>
       <find>params</find>
       <find>source</find>
+      <find>Float</find>
       <find>sou</find>
       <find>sendDataT</find>
+      <find>data</find>
+      <find>dataTo</find>
+      <find>json</find>
     </findStrings>
     <replaceStrings>
       <replace>Double</replace>
@@ -2330,12 +2307,13 @@
         <option value="$PROJECT_DIR$/app/src/main/java/ApplicationController.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_lyfter.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/desilyft/Http.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/desilyft/Location.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/desilyft/UserLocation.java" />
         <option value="$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-places-11.8.0.aar/bba2ec5f6be1ebc5a49bbe0f7677a802/jars/classes.jar!/com/google/android/gms/location/places/Place.class" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/desilyft/LyfterActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/desilyft/Utils.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/desilyft/Callback.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/desilyft/Http.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/desilyft/LyfterActivity.java" />
       </list>
     </option>
   </component>
@@ -2456,7 +2434,7 @@
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="device.picker.selection" value="c044da40" />
-    <property name="SearchEverywhereHistoryKey" value="mani&#9;FILE&#9;file:///Users/sriablaze/Desktop/Dev/desi-lyft/app/src/main/AndroidManifest.xml&#10;Mani&#9;FILE&#9;file:///Users/sriablaze/Desktop/Dev/desi-lyft/app/src/main/AndroidManifest.xml&#10;gradle&#9;FILE&#9;file:///Users/sriablaze/Desktop/Dev/desi-lyft/app/build.gradle&#10;lyfter&#9;FILE&#9;file:///Users/sriablaze/Desktop/Dev/desi-lyft/app/src/main/java/com/example/desilyft/LyfterActivity.java&#10;androidman&#9;FILE&#9;file:///Users/sriablaze/Desktop/Dev/desi-lyft/app/src/main/AndroidManifest.xml&#10;manif&#9;FILE&#9;file:///Users/sriablaze/Desktop/Dev/desi-lyft/app/src/main/AndroidManifest.xml&#10;activity_lyf&#9;FILE&#9;file:///Users/sriablaze/Desktop/Dev/desi-lyft/app/src/main/res/layout/activity_lyfter.xml" />
+    <property name="SearchEverywhereHistoryKey" value="Http&#9;PSI&#9;JAVA://com.example.desilyft.Http&#10;mani&#9;FILE&#9;file:///Users/sriablaze/Desktop/Dev/desi-lyft/app/src/main/AndroidManifest.xml&#10;Mani&#9;FILE&#9;file:///Users/sriablaze/Desktop/Dev/desi-lyft/app/src/main/AndroidManifest.xml&#10;gradle&#9;FILE&#9;file:///Users/sriablaze/Desktop/Dev/desi-lyft/app/build.gradle&#10;lyfter&#9;FILE&#9;file:///Users/sriablaze/Desktop/Dev/desi-lyft/app/src/main/java/com/example/desilyft/LyfterActivity.java&#10;androidman&#9;FILE&#9;file:///Users/sriablaze/Desktop/Dev/desi-lyft/app/src/main/AndroidManifest.xml&#10;manif&#9;FILE&#9;file:///Users/sriablaze/Desktop/Dev/desi-lyft/app/src/main/AndroidManifest.xml&#10;activity_lyf&#9;FILE&#9;file:///Users/sriablaze/Desktop/Dev/desi-lyft/app/src/main/res/layout/activity_lyfter.xml" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
   </component>
   <component name="RecentsManager">
@@ -2556,7 +2534,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1547836661130" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1547838665810" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2604,7 +2582,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1547836661130" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1547838665810" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2787,7 +2765,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1547836661131" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1547838665811" />
       </method>
     </configuration>
     <list size="1">
@@ -2830,7 +2808,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="812" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -2847,12 +2824,12 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12603877" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28947368" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963988" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2886,7 +2863,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32963988" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12603877" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2906,17 +2883,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_lyfter.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" column="16" lean-forward="false" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_nav_bar.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -2988,10 +2954,10 @@
           <caret line="15" column="38" lean-forward="false" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5839#6213#0" expanded="true" />
-            <element signature="e#6212#6213#0" expanded="true" />
-            <element signature="e#6253#6550#0" expanded="true" />
-            <element signature="e#6549#6550#0" expanded="true" />
+            <element signature="e#6538#6912#0" expanded="true" />
+            <element signature="e#6911#6912#0" expanded="true" />
+            <element signature="e#6952#7249#0" expanded="true" />
+            <element signature="e#7248#7249#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3064,10 +3030,10 @@
           <caret line="112" column="0" lean-forward="false" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5839#6213#0" expanded="true" />
-            <element signature="e#6212#6213#0" expanded="true" />
-            <element signature="e#6253#6550#0" expanded="true" />
-            <element signature="e#6549#6550#0" expanded="true" />
+            <element signature="e#6538#6912#0" expanded="true" />
+            <element signature="e#6911#6912#0" expanded="true" />
+            <element signature="e#6952#7249#0" expanded="true" />
+            <element signature="e#7248#7249#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3194,10 +3160,10 @@
           <caret line="46" column="8" lean-forward="false" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5839#6213#0" expanded="true" />
-            <element signature="e#6212#6213#0" expanded="true" />
-            <element signature="e#6253#6550#0" expanded="true" />
-            <element signature="e#6549#6550#0" expanded="true" />
+            <element signature="e#6538#6912#0" expanded="true" />
+            <element signature="e#6911#6912#0" expanded="true" />
+            <element signature="e#6952#7249#0" expanded="true" />
+            <element signature="e#7248#7249#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3288,17 +3254,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_lyfter.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/desilyft/ApplicationController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
@@ -3346,6 +3301,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_lyfter.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/desilyft/Callback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/desilyft/UserLocation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -3368,27 +3342,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/desilyft/LyfterActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/desilyft/Http.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="46" column="42" lean-forward="true" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
+        <state relative-caret-position="286">
+          <caret line="46" column="37" lean-forward="false" selection-start-line="46" selection-start-column="33" selection-end-line="46" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5839#6213#0" expanded="true" />
-            <element signature="e#6212#6213#0" expanded="true" />
-            <element signature="e#6253#6550#0" expanded="true" />
-            <element signature="e#6549#6550#0" expanded="true" />
+            <element signature="e#2288#2304#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/desilyft/Http.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/desilyft/LyfterActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="53" column="58" lean-forward="true" selection-start-line="53" selection-start-column="58" selection-end-line="53" selection-end-column="58" />
+        <state relative-caret-position="100">
+          <caret line="54" column="67" lean-forward="false" selection-start-line="54" selection-start-column="67" selection-end-line="54" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2024#2040#0" expanded="true" />
+            <element signature="e#6538#6912#0" expanded="true" />
+            <element signature="e#6911#6912#0" expanded="true" />
+            <element signature="e#6952#7249#0" expanded="true" />
+            <element signature="e#7248#7249#0" expanded="true" />
           </folding>
         </state>
       </provider>
