@@ -2,6 +2,8 @@ package com.example.desilyft;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -9,6 +11,7 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,9 +27,15 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.gson.Gson;
 import com.libizo.CustomEditText;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.List;
 
 import static com.google.android.gms.location.LocationServices.getFusedLocationProviderClient;
 
@@ -34,7 +43,30 @@ public class LyfterActivity extends FragmentActivity implements OnMapReadyCallba
 
     private GoogleMap mMap;
     private Place destination;
+    private LatLng source;
     private static final int  REQUEST_FINE_LOCATION = 101;
+
+    private void createLyfterService(LatLng source, LatLng destination) {
+        String endPoint = "/api/lyfter-services";
+        HashMap<String, Object> dataToBackend = new HashMap<>();
+        dataToBackend.put("lyftee_max_limit", 1);
+        dataToBackend.put("source_lat", source.latitude);
+        dataToBackend.put("source_long", source.longitude);
+        dataToBackend.put("destination_lat", destination.latitude);
+        dataToBackend.put("destination_long", destination.longitude);
+        Http.post(endPoint, dataToBackend, new LyfterServiceResponseHandler());
+    }
+
+    private void assignLyftees(Integer lyfterServiceId) {
+
+    }
+
+    class LyfterServiceResponseHandler implements Callback {
+        @Override
+        public void handleResponse(HashMap<String, Object> response) {
+
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +89,8 @@ public class LyfterActivity extends FragmentActivity implements OnMapReadyCallba
             @Override
             public void onPlaceSelected(Place place) {
                 destination = place;
+                // Get the
+                createLyfterService(source, destination.getLatLng());
                 Toast.makeText(getApplicationContext(),"Destination Set to "+place.getName(),Toast.LENGTH_SHORT).show();
             }
             @Override
@@ -64,8 +98,8 @@ public class LyfterActivity extends FragmentActivity implements OnMapReadyCallba
                 Log.d("DEBUG",status.toString());
             }
         });
-    }
 
+    }
 
     /**
      * Manipulates the map once available.
@@ -118,10 +152,10 @@ public class LyfterActivity extends FragmentActivity implements OnMapReadyCallba
         String msg = "Updated Location: " +
                 Double.toString(location.getLatitude()) + "," +
                 Double.toString(location.getLongitude());
-        Log.d("Found", msg);
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
         // You can now create a LatLng Object for use with maps
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+        source = latLng;
     }
 
     public void getLastLocation() {

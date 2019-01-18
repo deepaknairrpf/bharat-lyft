@@ -3,6 +3,7 @@ package com.example.desilyft;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,6 +11,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.desilyft.Effects.ButtonAnimator;
+
+import java.util.HashMap;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText usernameField;
@@ -39,14 +42,28 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                login();
+                String username = usernameField.getText().toString();
+                String password = passwordField.getText().toString();
+                login(username,password);
             }
         });
 
 
     }
 
-    private void login() {
+    private void login(String username,String password) {
+        String endPoint = "/api/token/";
+        HashMap<String, Object> dataToBackend = new HashMap<>();
+        dataToBackend.put("username", username;
+        dataToBackend.put("password", password);
+        Http.post(endPoint, dataToBackend, new LoginResponseHandler());
+    }
+
+    class LoginResponseHandler implements Callback {
+        @Override
+        public void handleResponse(HashMap<String, Object> response) {
+            Log.d("login response",response.toString());
+        }
     }
 }
 
