@@ -4,6 +4,7 @@
 *.aab
 
 .idea/codeStyles/
+.idea/workspace.xml
 
 
 # Files for the ART/Dalvik VM
