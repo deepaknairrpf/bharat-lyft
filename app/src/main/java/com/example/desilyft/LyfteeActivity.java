@@ -22,6 +22,7 @@ import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
 import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 
+import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.util.Calendar;
@@ -34,8 +35,8 @@ public class LyfteeActivity extends AppCompatActivity {
     private int mYear, mMonth, mDay, mHour, mMinute;
     private int currentYear, currentMonth, currentDate, currentHour, currentMin;
     Button scheduleButton;
-
-
+    Place sourcePlace, destPlace;
+    TextView txtDate,txtTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +44,8 @@ public class LyfteeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lyftee);
 
         getSupportActionBar().hide();
-        final TextView txtDate=(TextView) findViewById(R.id.dateText);
-        final TextView txtTime=(TextView) findViewById(R.id.timeText);
+        txtDate=(TextView) findViewById(R.id.dateText);
+        txtTime=(TextView) findViewById(R.id.timeText);
         scheduleButton = (Button)findViewById(R.id.schedule_button);
 
         Calendar c = Calendar.getInstance();
@@ -115,6 +116,7 @@ public class LyfteeActivity extends AppCompatActivity {
         autocompleteFragmentSource.setOnPlaceSelectedListener(new PlaceSelectionListener() {
             @Override
             public void onPlaceSelected(Place place) {
+                sourcePlace = place;
                 Toast.makeText(getApplicationContext(),"Source Set to "+place.getName(),Toast.LENGTH_SHORT).show();
             }
             @Override
@@ -137,6 +139,7 @@ public class LyfteeActivity extends AppCompatActivity {
         autocompleteFragmentDestination.setOnPlaceSelectedListener(new PlaceSelectionListener() {
             @Override
             public void onPlaceSelected(Place place) {
+                destPlace = place;
                 Toast.makeText(getApplicationContext(),"Source Set to "+place.getName(),Toast.LENGTH_SHORT).show();
             }
             @Override
@@ -158,27 +161,24 @@ public class LyfteeActivity extends AppCompatActivity {
     }
 
     private void sendScheduleRequest() {
-//        String endPoint = "/api/lyftee-schedules/";
-//        HashMap<String, Object> dataToBackend = new HashMap<>();
-//        dataToBackend.put("source_lat", username);
-//        dataToBackend.put("source_long", password);
-//        dataToBackend.put("destination_lat", username);
-//        dataToBackend.put("destination_long", password);
-//        dataToBackend.put("scheduled_time", username);
-//        dataToBackend.put("source_long", password);
-//        dataToBackend.put("source_lat", username);
-//        dataToBackend.put("source_long", password);
-//        Http.hit(endPoint, new JSONObject(dataToBackend), new LoginResponseHandler());
+        String endPoint = "/api/lyftee-schedules/";
+
+        String datetime = txtDate.getText().toString() + " "+txtTime.getText().toString();
+        HashMap<String, Object> dataToBackend = new HashMap<>();
+        dataToBackend.put("source_lat", sourcePlace.getLatLng().latitude);
+        dataToBackend.put("source_long", sourcePlace.getLatLng().longitude);
+        dataToBackend.put("destination_lat", destPlace.getLatLng().latitude);
+        dataToBackend.put("destination_long", destPlace.getLatLng().longitude);
+        dataToBackend.put("scheduled_time", datetime);
+
+        Http.hit(endPoint, new JSONObject(dataToBackend), new LyfteeScheduleResponseHandler());
     }
 
 
     class LyfteeScheduleResponseHandler implements Callback {
         @Override
         public void handleResponse(HashMap<String, Object> response) {
-
-
-
-            Toast.makeText(getApplicationContext(),"skldfjsd",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Response : " + response.toString(),Toast.LENGTH_LONG).show();
         }
     }
 }
