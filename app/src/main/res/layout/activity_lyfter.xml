@@ -19,20 +19,25 @@
         android:layout_height="61dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:textAlignment="textStart"
-        android:paddingStart="20dp"
-        android:paddingEnd="8dp"
+        android:layout_marginTop="56dp"
         android:elevation="5dp"
         android:hint="Where to?"
+        android:paddingEnd="8dp"
+        android:paddingStart="20dp"
+        android:textAlignment="textStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:libIZO_clearIconTint="@color/colorPrimary"
+        app:libIZO_setBackgroundColor="#FFFFFF"
         app:libIZO_setBorderColor="#92928C"
         app:libIZO_setBorderView="true"
         app:libIZO_setClearIconVisible="true"
         app:libIZO_setCornerRadius="25dp"
-        app:libIZO_setStrokeWidth="2dp"
-        app:libIZO_setBackgroundColor="#FFFFFF"/>
+        app:libIZO_setStrokeWidth="2dp" />
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </FrameLayout>
 </android.support.constraint.ConstraintLayout>
