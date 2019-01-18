@@ -1,28 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<android.support.constraint.ConstraintLayout
     android:layout_height="match_parent"
-    tools:context="com.example.desilyft.LyfterActivity">
-
-    <com.libizo.CustomEditText
-        android:id="@+id/lyfter_source_edit"
-        android:layout_width="0dp"
-        android:layout_height="61dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:hint="Enter your source"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:libIZO_clearIconTint="@color/colorPrimary"
-        app:libIZO_setBorderColor="#92928C"
-        app:libIZO_setBorderView="true"
-        app:libIZO_setClearIconVisible="true"
-        app:libIZO_setCornerRadius="25dp"
-        app:libIZO_setStrokeWidth="2dp" />
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:map="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="com.example.desilyft.LyfterActivity"
+        />
 
     <com.libizo.CustomEditText
         android:id="@+id/lyfter_destination_edit"
@@ -31,30 +20,19 @@
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:hint="Enter the destination"
+        android:textAlignment="textStart"
+        android:paddingStart="20dp"
+        android:paddingEnd="8dp"
+        android:elevation="5dp"
+        android:hint="Where to?"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lyfter_source_edit"
+        app:layout_constraintTop_toTopOf="parent"
         app:libIZO_clearIconTint="@color/colorPrimary"
         app:libIZO_setBorderColor="#92928C"
         app:libIZO_setBorderView="true"
         app:libIZO_setClearIconVisible="true"
         app:libIZO_setCornerRadius="25dp"
-        app:libIZO_setStrokeWidth="2dp" />
-
-    <Button
-        android:id="@+id/button_find_lyftees"
-        android:layout_width="0dp"
-        android:layout_height="43dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:background="@color/colorPrimaryDark"
-        android:text="Find lyftees"
-        android:textColor="#ffffff"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lyfter_destination_edit" />
-
+        app:libIZO_setStrokeWidth="2dp"
+        app:libIZO_setBackgroundColor="#FFFFFF"/>
 </android.support.constraint.ConstraintLayout>
