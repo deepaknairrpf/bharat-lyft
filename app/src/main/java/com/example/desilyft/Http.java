@@ -15,6 +15,7 @@ import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 
 import org.json.JSONException;
@@ -33,19 +34,20 @@ public class Http {
     private static String HOST = "http://10.10.11.153:8000";
     private static String AUTH_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTUxNzE1NTc0LCJqdGkiOiJjOTRlMWQ2MTk3MTg0N2I0OTkwNjYwMzhiMWMwMTE2MyIsInVzZXJfaWQiOjF9.eho4hKKv9us0unBAXeE216BtQQPxDzWip3-htRAUGvM";
 
-    public static void post(String url, HashMap<String, Object> data, final Callback callbackClass) {
+    public static void hit(String url, JSONObject data, final Callback callbackClass) {
         String completeURL = HOST + url;
-        Log.d("json", new JSONObject(data).toString());
-        JsonObjectRequest req = new JsonObjectRequest(completeURL, new JSONObject(data),
+        JsonObjectRequest req = new JsonObjectRequest(completeURL, data,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
                             VolleyLog.v("Response:%n %s", response.toString(4));
-                            HashMap<String, Object> responseHashMap = new Gson().fromJson(response.toString(), HashMap.class);
+                            Log.d("json response", response.toString());
+                            HashMap<String, Object> responseHashMap = new ObjectMapper().readValue(response.toString(), HashMap.class);
+                            Log.d("hashmap response", responseHashMap.toString());
                             callbackClass.handleResponse(responseHashMap);
 
-                        } catch (JSONException e) {
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
