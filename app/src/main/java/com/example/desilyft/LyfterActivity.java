@@ -2,6 +2,8 @@ package com.example.desilyft;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -29,13 +31,21 @@ import com.libizo.CustomEditText;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
+import java.util.HashMap;
+import java.util.List;
+
 import static com.google.android.gms.location.LocationServices.getFusedLocationProviderClient;
 
 public class LyfterActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private Place destination;
+    private LatLng source;
     private static final int  REQUEST_FINE_LOCATION = 101;
+
+    private void sendDataToBackend(LatLng source, LatLng destination) {
+        Log.d("source", source.toString());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +68,8 @@ public class LyfterActivity extends FragmentActivity implements OnMapReadyCallba
             @Override
             public void onPlaceSelected(Place place) {
                 destination = place;
+                // Get the
+                sendDataToBackend(source, destination.getLatLng());
                 Toast.makeText(getApplicationContext(),"Destination Set to "+place.getName(),Toast.LENGTH_SHORT).show();
             }
             @Override
@@ -65,8 +77,8 @@ public class LyfterActivity extends FragmentActivity implements OnMapReadyCallba
                 Log.d("DEBUG",status.toString());
             }
         });
-    }
 
+    }
 
     /**
      * Manipulates the map once available.
@@ -122,6 +134,7 @@ public class LyfterActivity extends FragmentActivity implements OnMapReadyCallba
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
         // You can now create a LatLng Object for use with maps
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+        source = latLng;
     }
 
     public void getLastLocation() {
