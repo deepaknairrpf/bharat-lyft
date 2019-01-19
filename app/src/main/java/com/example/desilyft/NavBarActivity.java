@@ -1,5 +1,7 @@
 package com.example.desilyft;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -79,19 +81,18 @@ public class NavBarActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-        if (id == R.id.schedule_lift) {
-            // Handle the camera action
+        Intent intent = null;
+        if (id == R.id.seek_lift) {
+            intent = new Intent(this, LyfteeActivity.class);
         } else if (id == R.id.offer_lift) {
-
-        } else if (id == R.id.contact) {
-
-        } else if (id == R.id.support) {
-
+            intent = new Intent(this, LyfterActivity.class);
         }
-
+        else if (id == R.id.view_requests) {
+            intent = new Intent(this, LyfteeRequestAssignedActivity.class);
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+        startActivity(intent);
         return true;
     }
 }

@@ -101,7 +101,10 @@ public class LyfterActivity extends FragmentActivity implements OnMapReadyCallba
         String destinationLong = lifterService.get("destination_long").toString();
         String waypointSourceLat = lifteeAssignmentDetails.get("pickup_point_lat").toString();
         String wayPointSourceLong = lifteeAssignmentDetails.get("pickup_point_long").toString();
-        Uri gmmIntentUri = Uri.parse("https://www.google.com/maps/dir/?api=1&origin="+ originLat + "," + originLong + "&destination=" + destinationLat + "," + destinationLong + "&waypoints=" + waypointSourceLat + "," + wayPointSourceLong + "&travelmode=driving");
+        String wayPointDestinationLat = lifteeAssignmentDetails.get("drop_point_lat").toString();
+        String wayPointDestinationLong = lifteeAssignmentDetails.get("drop_point_long").toString();
+        Uri gmmIntentUri = Uri.parse("https://www.google.com/maps/dir/?api=1&origin="+ originLat + "," + originLong + "&destination=" + destinationLat + "," + destinationLong + "&waypoints=" + waypointSourceLat + "," + wayPointSourceLong + "|" + wayPointDestinationLat + "," + wayPointDestinationLong + "&travelmode=driving");
+        Log.d("uri", gmmIntentUri.toString());
         Intent intent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
         intent.setPackage("com.google.android.apps.maps");
         try {
@@ -118,7 +121,7 @@ public class LyfterActivity extends FragmentActivity implements OnMapReadyCallba
 
     public void showLyfteeCard(HashMap<String, Object> lifteeDetails) {
         HashMap<String, Object> lyfteeSchedule = (HashMap<String, Object>)lifteeDetails.get("lyftee_schedule");
-        HashMap<String, Object> userData = (HashMap<String, Object>)lyfteeSchedule.get("user");
+        HashMap<String, Object> userData = (HashMap<String, Object>)lyfteeSchedule.get("user_details");
         String name = userData.get("first_name").toString();
         View parent = findViewById(R.id.liftee_card);
         parent.setVisibility(View.VISIBLE);

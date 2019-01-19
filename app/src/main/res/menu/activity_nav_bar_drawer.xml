@@ -5,13 +5,18 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/schedule_lift"
+            android:id="@+id/seek_lift"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Schedule Lift" />
+            android:title="Seek Lyft" />
         <item
             android:id="@+id/offer_lift"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Offer Lift" />
+            android:title="Offer Lyft" />
+
+        <item
+            android:id="@+id/view_requests"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="View Lyft Requests" />
     </group>
 
     <item android:title="Communicate">
