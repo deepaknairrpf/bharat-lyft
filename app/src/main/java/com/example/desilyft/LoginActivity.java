@@ -1,5 +1,6 @@
 package com.example.desilyft;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.desilyft.Effects.ButtonAnimator;
+import com.example.desilyft.services.LocationTrackerService;
 
 import org.json.JSONObject;
 
@@ -57,6 +59,8 @@ public class LoginActivity extends AppCompatActivity {
                 login(username,password);
             }
         });
+        Intent intent = new Intent(this, LocationTrackerService.class);
+        startService(intent);
 
 
     }
@@ -72,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
     class LoginResponseHandler implements Callback {
         @Override
         public void handleResponse(HashMap<String, Object> response) {
-//            Log.d("login response",response.toString());
+            Log.d("login_response",response.toString());
 
             editor = getSharedPreferences(MY_PREFS_TOKEN, MODE_PRIVATE).edit();
             editor.putString("access", response.get("access").toString());
@@ -80,9 +84,8 @@ public class LoginActivity extends AppCompatActivity {
             editor.apply();
 
             SharedPreferences prefs = getSharedPreferences(MY_PREFS_TOKEN, MODE_PRIVATE);
-
-
-            Toast.makeText(getApplicationContext(),prefs.getString("access token from shared pref","default"),Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(LoginActivity.this, NavBarActivity.class);
+            startActivity(intent);
         }
     }
 }

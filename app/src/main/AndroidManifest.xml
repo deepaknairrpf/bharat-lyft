@@ -20,13 +20,23 @@
         android:name=".ApplicationController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="Bharat Lyft"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LyfteeRequestAssignedActivity">
+        <activity
+            android:name=".LyfteeRequestAssignedActivity"
+            android:label="My Lyft Requests">
+
         </activity>
-        <activity android:name=".LoginActivity"></activity>
+        <service android:name=".services.LocationTrackerService" />
+        <activity android:name=".LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -42,14 +52,9 @@
         <!-- android:exported="false" /> -->
         <activity
             android:name=".NavBarActivity"
-            android:label="@string/title_activity_nav_bar"
+            android:label="Home"
             android:theme="@style/NoActionBar"
             android:screenOrientation="portrait" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".LyfteeActivity"
             android:screenOrientation="portrait" >

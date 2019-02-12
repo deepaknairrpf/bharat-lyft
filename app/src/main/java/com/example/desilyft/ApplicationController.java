@@ -1,7 +1,9 @@
 package com.example.desilyft;
 
 import android.app.Application;
+import android.content.SharedPreferences;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -92,5 +94,11 @@ public class ApplicationController extends Application {
         if (mRequestQueue != null) {
             mRequestQueue.cancelAll(tag);
         }
+    }
+
+    public String getToken() {
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("tokenpreference", 0);
+        Log.d("access_token", pref.getString("access", null));
+        return pref.getString("access", null);
     }
 }

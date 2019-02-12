@@ -25,16 +25,23 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
+import static android.content.Context.MODE_PRIVATE;
+
 /**
  * Created by sriablaze on 18/01/19.
  */
 
 public class Http {
 
-    private static String HOST = "http://10.10.11.153:8000";
-    private static String AUTH_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTUxNzE1NTc0LCJqdGkiOiJjOTRlMWQ2MTk3MTg0N2I0OTkwNjYwMzhiMWMwMTE2MyIsInVzZXJfaWQiOjF9.eho4hKKv9us0unBAXeE216BtQQPxDzWip3-htRAUGvM";
+    private static String HOST = "http://192.168.1.7:8000";
+    private static String AUTH_TOKEN = null;
+
+    private static void getToken() {
+       AUTH_TOKEN = new ApplicationController().getInstance().getToken();
+    }
 
     public static void hit(String url, JSONObject data, final Callback callbackClass) {
+        getToken();
         String completeURL = HOST + url;
         JsonObjectRequest req = new JsonObjectRequest(completeURL, data,
                 new Response.Listener<JSONObject>() {
@@ -60,7 +67,8 @@ public class Http {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String>  params = new HashMap<String, String>();
-                params.put("Authorization", "JWT " + AUTH_TOKEN);
+                if (AUTH_TOKEN != null)
+                    params.put("Authorization", "JWT " + AUTH_TOKEN);
                 params.put("Content-Type", "application/json");
                 Log.d("params", params.toString());
                 return params;
